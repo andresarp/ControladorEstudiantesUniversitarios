@@ -52,7 +52,9 @@ public partial class Matricula : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-    
+        tboxDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
+        tboxDate.Enabled = false;
+
     }
 
     protected void Button2_Click(object sender, EventArgs e)
@@ -264,6 +266,21 @@ public partial class Matricula : System.Web.UI.Page
         con.Close();
         rdr.Close();
        
+        return result;
+    }
+
+
+    public int getCountCoursesRegister()
+    {
+        int result = 0;
+        con.Open();
+        cmd = new SqlCommand("Select COUNT(*) From Registration", con);
+
+        cmd.ExecuteNonQuery();
+        result = Convert.ToInt32(cmd.ExecuteScalar());
+
+        con.Close();
+
         return result;
     }
 

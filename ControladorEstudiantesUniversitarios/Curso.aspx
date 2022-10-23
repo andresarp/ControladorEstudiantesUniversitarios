@@ -40,7 +40,7 @@
         <tr>
             <td class="modal-sm" style="width: 201px; height: 36px;">
                 <asp:Label ID="lblId" runat="server" Text="Identificación"></asp:Label>
-                <asp:TextBox ID="tboxID" runat="server" Width="200px" Enabled="False"></asp:TextBox>
+                <asp:TextBox ID="tboxID" runat="server" Width="200px" Enabled="False" OnTextChanged="tboxID_TextChanged"></asp:TextBox>
             </td>
             <td class="modal-sm" style="width: 160px; height: 36px;">
                 &nbsp;</td>

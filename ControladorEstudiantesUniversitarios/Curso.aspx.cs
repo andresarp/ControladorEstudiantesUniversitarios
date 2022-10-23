@@ -33,6 +33,7 @@ public partial class Curso : System.Web.UI.Page
         tboxCourseName.Text = "";
         tboxCost.Text = "";
         lblMessage.Text = "";
+        tboxID.Enabled = true;
     }
 
 
@@ -126,5 +127,10 @@ public partial class Curso : System.Web.UI.Page
         textarea.Text = dgViewCourses.SelectedRow.Cells[4].Text;
         tboxCost.Text = dgViewCourses.SelectedRow.Cells[5].Text;
         
+    }
+
+    protected void tboxID_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }
