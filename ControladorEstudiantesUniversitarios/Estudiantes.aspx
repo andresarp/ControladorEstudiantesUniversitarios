@@ -123,7 +123,7 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="modal-sm" style="width: 198px; height: 20px">&nbsp;</td>
+            <td class="modal-sm" style="width: 198px; height: 20px"></td>
             <td style="height: 20px; width: 266px">
                 <asp:Button ID="btnAdd" runat="server" BackColor="#339933" ForeColor="White" Text="Agregar" OnClick="btnAdd_Click" Width="241px" />
                 </td>

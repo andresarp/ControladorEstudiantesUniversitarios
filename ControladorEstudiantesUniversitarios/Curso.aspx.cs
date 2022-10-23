@@ -32,7 +32,6 @@ public partial class Curso : System.Web.UI.Page
         tboxSchoolName.Text = "";
         tboxCourseName.Text = "";
         tboxCost.Text = "";
-        DropDownListCareer.SelectedIndex=-1;
         lblMessage.Text = "";
     }
 
@@ -45,17 +44,16 @@ public partial class Curso : System.Web.UI.Page
     protected void Button2_Click(object sender, EventArgs e)
     {
         if (tboxSchoolName.Text != "" && tboxCourseName.Text != "" && tboxCost.Text != ""
-       && tboxCost.Text != "" && DropDownListCareer.SelectedValue != "")
+       && tboxCost.Text != "" && textarea.Text != "")
         {
             using (con = new SqlConnection(cs))
             {
                 con.Open();
-                cmd = new SqlCommand("Update Courses Set schoolName=@schoolName, courseName=@courseName, description=@description, price=@price, career=@career Where Id=@courseId", con);
+                cmd = new SqlCommand("Update Courses Set schoolName=@schoolName, courseName=@courseName, description=@description, price=@price Where Id=@courseId", con);
                 cmd.Parameters.AddWithValue("@schoolName", tboxSchoolName.Text);
                 cmd.Parameters.AddWithValue("@courseName", tboxCourseName.Text);
-                cmd.Parameters.AddWithValue("@description", "");
+                cmd.Parameters.AddWithValue("@description", textarea.Text);
                 cmd.Parameters.AddWithValue("@price", tboxCost.Text);
-                cmd.Parameters.AddWithValue("@career", DropDownListCareer.SelectedValue);
                 cmd.Parameters.AddWithValue("@courseId", tboxID.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -93,17 +91,16 @@ public partial class Curso : System.Web.UI.Page
     protected void btnAdd_Click(object sender, EventArgs e)
     {
         if (tboxSchoolName.Text != "" && tboxCourseName.Text != "" && tboxCost.Text != ""
-        && tboxCost.Text != "" && DropDownListCareer.SelectedValue != "")
+        && tboxCost.Text != "")
         {
             using (con = new SqlConnection(cs))
             {
                 con.Open();
-                cmd = new SqlCommand("Insert Into Courses (schoolName, courseName, description, price, career) Values(@schoolName, @courseName, @description, @price, @career)", con);
+                cmd = new SqlCommand("Insert Into Courses (schoolName, courseName, description, price) Values(@schoolName, @courseName, @description, @price)", con);
                 cmd.Parameters.AddWithValue("@schoolName", tboxSchoolName.Text);
                 cmd.Parameters.AddWithValue("@courseName", tboxCourseName.Text);
-                cmd.Parameters.AddWithValue("@description", "");
+                cmd.Parameters.AddWithValue("@description", textarea.Text);
                 cmd.Parameters.AddWithValue("@price", tboxCost.Text);
-                cmd.Parameters.AddWithValue("@career", DropDownListCareer.SelectedValue);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 DataLoad();
@@ -126,12 +123,8 @@ public partial class Curso : System.Web.UI.Page
         tboxID.Text = dgViewCourses.SelectedRow.Cells[1].Text;
         tboxSchoolName.Text = dgViewCourses.SelectedRow.Cells[2].Text;
         tboxCourseName.Text = dgViewCourses.SelectedRow.Cells[3].Text;
-        //tboxSecondName.Text = dgViewCourses.SelectedRow.Cells[4].Text;
+        textarea.Text = dgViewCourses.SelectedRow.Cells[4].Text;
         tboxCost.Text = dgViewCourses.SelectedRow.Cells[5].Text;
-
-        if (dgViewCourses.SelectedRow.Cells[6].Text != "-1") {
-            DropDownListCareer.SelectedValue = dgViewCourses.SelectedRow.Cells[6].Text;
-        }
         
     }
 }
