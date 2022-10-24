@@ -305,10 +305,7 @@ public partial class Matricula : System.Web.UI.Page
     }
 
 
-    protected void tboxIdCourse_TextChanged(object sender, EventArgs e)
-    {
-        
-    }
+    protected void tboxIdCourse_TextChanged(object sender, EventArgs e){}
 
     protected void btnCancelRegister_Click(object sender, EventArgs e)
     {

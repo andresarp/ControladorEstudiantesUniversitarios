@@ -67,4 +67,9 @@ public partial class ReportesGenerador : System.Web.UI.Page
             return result;
         }
     }
+
+    protected void SqlDataSource2_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+    {
+
+    }
 }

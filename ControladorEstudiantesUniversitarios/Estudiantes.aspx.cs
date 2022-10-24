@@ -26,6 +26,7 @@ public partial class Estudiantes : System.Web.UI.Page
         if (Page.IsPostBack) {
             dgViewStudents.DataBind();
         }
+        tboxID.Enabled = true;
     }
 
     public void ClearAllData()
@@ -37,16 +38,6 @@ public partial class Estudiantes : System.Web.UI.Page
         tboxBirthDate.Text = "";
         tboxAdmissionDate.Text = "";
         lblMessage.Text = "";
-    }
-
-
-
-
-
-
-    protected void SqlDataSource2_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
-    {
-
     }
 
     protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
@@ -81,11 +72,6 @@ public partial class Estudiantes : System.Web.UI.Page
         {
             lblMessage.Text = "Todos los campos son obligatorios";
         }
-    }
-
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-
     }
 
     protected void btnClean_Click(object sender, EventArgs e)

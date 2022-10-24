@@ -22,7 +22,7 @@
                         <asp:BoundField DataField="totalCost" HeaderText="totalCost" ReadOnly="True" SortExpression="totalCost" />
                     </Columns>
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT period, SUM(costRegistration) AS totalCost FROM Registration GROUP BY period"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT period, SUM(costRegistration) AS totalCost FROM Registration GROUP BY period" OnSelecting="SqlDataSource2_Selecting"></asp:SqlDataSource>
                 <asp:GridView ID="GridViewReportsStudent" runat="server" AutoGenerateColumns="False" DataKeyNames="Identificacion" DataSourceID="SqlDataSource3" Height="270px" Width="860px">
                     <Columns>
                         <asp:BoundField DataField="Identificacion" HeaderText="Identificacion" InsertVisible="False" ReadOnly="True" SortExpression="Identificacion" />
